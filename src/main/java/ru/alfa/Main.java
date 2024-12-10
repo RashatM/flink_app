@@ -1,10 +1,10 @@
-package org.example;
+package ru.alfa;
 
 
 import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import ru.alfa.sources.file.CountryCount;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -54,8 +54,8 @@ public class Main {
                         return new CountryCount(country, 1); // Возвращаем объект
                     }
                 })
-                .keyBy(countryCount -> countryCount.country) // Группируем по стране
-                .reduce((value1, value2) -> new CountryCount(value1.country, value1.count + value2.count)); // Суммируем количество
+                .keyBy(countryCount -> countryCount.getCountry()) // Группируем по стране
+                .reduce((value1, value2) -> new CountryCount(value1.getCountry(), value1.getCount() + value2.count)); // Суммируем количество
         env.execute();
     }
 }

@@ -1,4 +1,4 @@
-package org.example;
+package ru.alfa.sources.file;
 
 
 public class CityRecord {
