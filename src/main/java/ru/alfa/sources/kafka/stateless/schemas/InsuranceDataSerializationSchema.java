@@ -2,7 +2,7 @@ package ru.alfa.sources.kafka.stateless.schemas;
 
 
 import org.apache.flink.api.common.serialization.SerializationSchema;
-import ru.alfa.sources.kafka.stateless.InsuranceData;
+import ru.alfa.sources.kafka.stateless.dto.InsuranceData;
 
 public class InsuranceDataSerializationSchema implements SerializationSchema<InsuranceData> {
 

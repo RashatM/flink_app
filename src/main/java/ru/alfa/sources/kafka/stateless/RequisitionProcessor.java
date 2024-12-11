@@ -1,15 +1,13 @@
 package ru.alfa.sources.kafka.stateless;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
-import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.connector.base.DeliveryGuarantee;
 import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import ru.alfa.sources.kafka.stateless.dto.InsuranceData;
 import ru.alfa.sources.kafka.stateless.schemas.InsuranceDataDeserializationSchema;
 import ru.alfa.sources.kafka.stateless.schemas.InsuranceDataSerializationSchema;
 
@@ -43,7 +41,7 @@ public class RequisitionProcessor {
                 .build();
 
         env.fromSource(source, WatermarkStrategy.noWatermarks(), "Kafka Source")
-                .keyBy((InsuranceData data) -> data.insurer)
+                .keyBy((InsuranceData data) -> data.getInsurer())
                 .flatMap(new KafkaValueState())
                 .sinkTo(sink);
     }

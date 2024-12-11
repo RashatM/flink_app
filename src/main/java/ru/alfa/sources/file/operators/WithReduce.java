@@ -1,9 +1,10 @@
-package ru.alfa.sources.file;
+package ru.alfa.sources.file.operators;
 
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import ru.alfa.sources.file.dto.CountryCount;
 
 public class WithReduce {
     public static void main(String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package ru.alfa.sources.file;
+package ru.alfa.sources.file.operators;
 
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -9,6 +9,7 @@ import org.apache.flink.core.fs.Path;
 import org.apache.flink.formats.csv.CsvReaderFormat;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import ru.alfa.sources.file.dto.CityRecord;
 
 //не работает корректно, так как нет шапки и он сортирует атрибуты класса в алфавитном порядке
 public class WithFileSource {

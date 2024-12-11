@@ -1,4 +1,4 @@
-package ru.alfa.sources.file;
+package ru.alfa.sources.file.operators;
 
 
 import org.apache.flink.api.common.functions.MapFunction;
@@ -6,7 +6,7 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-public class Simple {
+public class WithMap {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 

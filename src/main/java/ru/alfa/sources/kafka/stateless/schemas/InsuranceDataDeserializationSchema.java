@@ -2,7 +2,7 @@ package ru.alfa.sources.kafka.stateless.schemas;
 
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
-import ru.alfa.sources.kafka.stateless.InsuranceData;
+import ru.alfa.sources.kafka.stateless.dto.InsuranceData;
 
 import java.io.IOException;
 

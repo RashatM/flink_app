@@ -1,4 +1,4 @@
-package ru.alfa.sources.file;
+package ru.alfa.sources.file.dto;
 
 public class CountryCount {
     public String country;
