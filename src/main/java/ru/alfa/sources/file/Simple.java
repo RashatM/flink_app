@@ -19,12 +19,15 @@ public class Simple {
                     @Override
                     public Tuple2<String, Integer> map(String line) throws Exception {
                         String[] fields = line.split(",");
-                        String country = fields[0]; // Извлекаем страну из первой колонки
-                        return Tuple2.of(country, 1); // Возвращаем пару
+                        if (fields.length >= 0) {
+                            String country = fields[0]; // Извлекаем страну из первой колонки
+                            return Tuple2.of(country, 1); // Возвращаем пару
+                        }
+                        return null;
                     }
                 })
+                .filter(value -> value != null)
                 .keyBy(0) // Группируем по стране
-                .sum(1) // Суммируем количество городов для каждой страны
                 .print(); // Печатаем результат
 
 
