@@ -1,4 +1,4 @@
-package ru.alfa.sources.kafka.stateless;
+package ru.alfa.sources.kafka.stateless.value;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.base.DeliveryGuarantee;
@@ -7,9 +7,9 @@ import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import ru.alfa.sources.kafka.stateless.dto.InsuranceData;
-import ru.alfa.sources.kafka.stateless.schemas.InsuranceDataDeserializationSchema;
-import ru.alfa.sources.kafka.stateless.schemas.InsuranceDataSerializationSchema;
+import ru.alfa.sources.kafka.stateless.value.dto.InsuranceData;
+import ru.alfa.sources.kafka.stateless.value.schemas.InsuranceDataDeserializationSchema;
+import ru.alfa.sources.kafka.stateless.value.schemas.InsuranceDataSerializationSchema;
 
 
 public class RequisitionProcessor {
