@@ -28,5 +28,9 @@ public class WithReduce {
                         )
                 ); // Суммируем количество
         env.execute();
+
+
+
+
     }
 }
