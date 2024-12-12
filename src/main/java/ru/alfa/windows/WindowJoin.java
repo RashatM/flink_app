@@ -23,7 +23,7 @@ public class WindowJoin {
                 new TradeTransactionEvent(2000L, "LKOH", 10, 100),
                 new TradeTransactionEvent(5000L, "LKOH", 15, 120),
                 new TradeTransactionEvent(9000L, "LKOH", -10, 130)
-        ).assignTimestampsAndWatermarks(new CustomWatermarkStrategy<>(Duration.ofSeconds(1)));
+        ).assignTimestampsAndWatermarks(new CustomWatermarkStrategy<>());
 
         DataStream<TradeQuoteEvent> quoteStream = env.fromData(
                 new TradeQuoteEvent(1000L, "LKOH", 110),
@@ -38,7 +38,7 @@ public class WindowJoin {
         DataStream<EnrichedTrade> enrichedTradeDataStream = tradeStream
                 .keyBy(TradeTransactionEvent::getTrade)
                 .intervalJoin(quoteStream.keyBy(TradeQuoteEvent::getTrade))
-                .between(Duration.ofMillis(-1), Duration.ofMillis(1))
+                .between(Duration.ofSeconds(-1), Duration.ofSeconds(1))
                 .process(new ProcessJoinFunction<>() {
                     @Override
                     public void processElement(

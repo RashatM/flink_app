@@ -9,9 +9,15 @@ public class CustomWatermarkStrategy<T extends Event> implements WatermarkStrate
 
     private final Duration maxOutOfOrderness;
 
+
     public CustomWatermarkStrategy(Duration maxOutOfOrderness) {
         this.maxOutOfOrderness = maxOutOfOrderness;
     }
+
+    public CustomWatermarkStrategy() {
+        this.maxOutOfOrderness = Duration.ofSeconds(0);
+    }
+
 
     @Override
     public WatermarkGenerator<T> createWatermarkGenerator(WatermarkGeneratorSupplier.Context context) {
