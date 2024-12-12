@@ -1,4 +1,4 @@
-package ru.alfa.sources.kafka.stateless.value;
+package ru.alfa.stateless.value;
 
 
 import org.apache.flink.api.common.functions.OpenContext;
@@ -8,7 +8,7 @@ import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.util.Collector;
-import ru.alfa.sources.kafka.stateless.value.dto.InsuranceData;
+import ru.alfa.stateless.value.dto.InsuranceData;
 
 public class KafkaValueState extends RichFlatMapFunction<InsuranceData, InsuranceData> {
     private transient ValueState<Integer> requestCount;

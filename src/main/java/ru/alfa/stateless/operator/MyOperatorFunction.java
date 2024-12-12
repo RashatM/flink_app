@@ -1,4 +1,4 @@
-package ru.alfa.sources.kafka.stateless.operator;
+package ru.alfa.stateless.operator;
 
 
 import org.apache.flink.api.common.functions.RichFlatMapFunction;

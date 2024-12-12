@@ -1,4 +1,4 @@
-package ru.alfa.sources.kafka.stateless.operator;
+package ru.alfa.stateless.operator;
 
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;

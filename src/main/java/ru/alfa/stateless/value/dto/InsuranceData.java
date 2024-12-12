@@ -1,4 +1,4 @@
-package ru.alfa.sources.kafka.stateless.value.dto;
+package ru.alfa.stateless.value.dto;
 
 public class InsuranceData {
     String insurer;
