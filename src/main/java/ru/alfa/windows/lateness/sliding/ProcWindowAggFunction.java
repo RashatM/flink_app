@@ -5,7 +5,7 @@ import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-public class ProcAggFunction extends ProcessWindowFunction<Tuple2<Long, Integer>, String, Integer, TimeWindow>{
+public class ProcWindowAggFunction extends ProcessWindowFunction<Tuple2<Long, Integer>, String, Integer, TimeWindow>{
     @Override
     public void process(
             Integer key,
@@ -25,7 +25,6 @@ public class ProcAggFunction extends ProcessWindowFunction<Tuple2<Long, Integer>
         }
 
         double average = count > 0 ? (double) sum / count : 0;
-
         out.collect("Window: " + ctx.window().getStart() + " to " + ctx.window().getEnd() +
                 "; Key: " + key +
                 "; Values: " + elements +

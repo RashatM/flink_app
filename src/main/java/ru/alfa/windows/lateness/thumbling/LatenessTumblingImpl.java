@@ -35,7 +35,7 @@ public class LatenessTumblingImpl {
                 .assignTimestampsAndWatermarks(new LateWatermarkStrategy(Duration.ofMillis(100)))
                 .keyBy(t -> t.f1)
                 .window(TumblingEventTimeWindows.of(Duration.ofSeconds(3)))
-                .allowedLateness(Duration.ofMillis(500))
+//                .allowedLateness(Duration.ofMillis(500))
                 .sideOutputLateData(lateOutputTag)
                 .process(new ProcessWindowFunction<Tuple2<Long, Integer>, String, Integer, TimeWindow>() {
                     @Override
