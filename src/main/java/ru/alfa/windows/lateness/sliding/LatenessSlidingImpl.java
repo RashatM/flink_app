@@ -29,7 +29,7 @@ public class LatenessSlidingImpl {
                 new Tuple2<>(1500L, 1),
                 new Tuple2<>(2500L, 1),
                 new Tuple2<>(3100L, 1),
-                new Tuple2<>(3500L, 1),
+                new Tuple2<>(3600L, 1),
                 new Tuple2<>(2300L, 1),
                 new Tuple2<>(2400L, 1)
         );
@@ -40,36 +40,7 @@ public class LatenessSlidingImpl {
                 .window(SlidingEventTimeWindows.of(Duration.ofSeconds(3), Duration.ofSeconds(1)))
                 .sideOutputLateData(lateOutputTag)
 //                .aggregate(new CustomAggFunction());
-                .process(new ProcessWindowFunction<Tuple2<Long, Integer>, String, Integer, TimeWindow>() {
-                    @Override
-                    public void process(
-                            Integer key,
-                            Context ctx,
-                            Iterable<Tuple2<Long, Integer>> elements,
-                            Collector<String> out) throws Exception {
-
-                        long sum = 0;
-                        long max = Long.MIN_VALUE;
-                        long count = 0;
-
-                        // Проходим по элементам окна, вычисляем сумму, максимум и количество
-                        for (Tuple2<Long, Integer> element : elements) {
-                            sum += element.f0;
-                            max = Math.max(max, element.f0);
-                            count++;
-                        }
-
-                        double average = count > 0 ? (double) sum / count : 0;
-
-                        out.collect("Window: " + ctx.window().getStart() + " to " + ctx.window().getEnd() +
-                                "; Key: " + key +
-                                "; Values: " + elements +
-                                "; Average: " + average +
-                                "; Max: " + max +
-                                "; Sum: " + sum +
-                                "; Count: " + count);
-                    }
-                });
+                .process(new ProcAggFunction());
 
         DataStream<Tuple2<Long, Integer>> lateStream = mainStream.getSideOutput(lateOutputTag);
         mainStream.print();
