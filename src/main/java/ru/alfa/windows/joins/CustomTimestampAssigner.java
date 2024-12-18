@@ -1,4 +1,4 @@
-package ru.alfa.windows;
+package ru.alfa.windows.joins;
 
 import org.apache.flink.api.common.eventtime.TimestampAssigner;
 import ru.alfa.windows.dto.events.Event;

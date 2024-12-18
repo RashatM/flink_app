@@ -16,6 +16,20 @@ public class EnrichedTrade {
         this.priceDifference = priceDifference;
     }
 
+    public EnrichedTrade() {};
+
+    public void setTrade(TradeTransactionEvent trade) {
+        this.trade = trade;
+    }
+
+    public void setQuote(TradeQuoteEvent quote) {
+        this.quote = quote;
+    }
+
+    public void setPriceDifference(double priceDifference) {
+        this.priceDifference = priceDifference;
+    }
+
     public TradeTransactionEvent getTrade() {
         return trade;
     }

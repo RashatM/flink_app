@@ -16,6 +16,8 @@ public class TradeTransactionEvent implements Event {
         this.price = price;
     }
 
+    public TradeTransactionEvent() {};
+
     public long getTimestamp() {
         return timestamp;
     }

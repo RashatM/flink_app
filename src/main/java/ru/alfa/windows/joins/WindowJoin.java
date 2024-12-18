@@ -1,14 +1,12 @@
-package ru.alfa.windows;
+package ru.alfa.windows.joins;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.streaming.api.datastream.DataStream;
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.streaming.api.functions.co.ProcessJoinFunction;
 import org.apache.flink.util.Collector;
 import ru.alfa.windows.dto.EnrichedTrade;
-import ru.alfa.windows.dto.events.Event;
 import ru.alfa.windows.dto.events.TradeQuoteEvent;
 import ru.alfa.windows.dto.events.TradeTransactionEvent;
 

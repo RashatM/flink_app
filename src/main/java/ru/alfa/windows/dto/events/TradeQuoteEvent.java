@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @ToString
 public class TradeQuoteEvent implements Event {
-    private Long timestamp;
+    private long timestamp;
     private String trade;      // Название акции (например, "LKOH", "GAZP", "SNGZ")
     private int price;
 
@@ -15,14 +15,10 @@ public class TradeQuoteEvent implements Event {
         this.price = price;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
+    public TradeQuoteEvent() {};
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
+    @Override
     public long getTimestamp() {
         return timestamp;
     }
@@ -35,4 +31,15 @@ public class TradeQuoteEvent implements Event {
         return price;
     }
 
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setTrade(String trade) {
+        this.trade = trade;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
